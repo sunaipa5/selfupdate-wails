@@ -1,6 +1,7 @@
 <template>
 <div>
   <h1>Checking update</h1>
+  <h2>Version 0.0.3</h2>
   <button @click="checkUpdate()">CHECK</button>
 </div>
 </template>

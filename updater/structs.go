@@ -6,6 +6,7 @@ type Options struct {
 	CurrentVersion string //Your application current version
 	PackageName    string //Installation package name
 	TagEnd         string //Example: window_amd64.tar.gz
+	AppName 	   string //Your executable app name
 }
 
 type Release struct {

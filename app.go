@@ -31,8 +31,9 @@ func (a *App) CheckUpdate() {
 	updaterOptions := updater.Options{
 		Author:         "sunaipa5",
 		Repo:           "selfupdate-wails",
-		CurrentVersion: "0.0.1",
+		CurrentVersion: "0.0.3",
 		TagEnd:         "linux_amd64.tar.gz",
+		AppName:        "selfupdate-wails",
 	}
 
 	isUpdateAvailable, release := updaterOptions.CheckUpdate()

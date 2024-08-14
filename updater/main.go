@@ -67,7 +67,7 @@ func (options Options) ApplyUpdate(release Release) {
 	}
 
 	GZ_extractor(source.Download_Url)
-	installUpdateNew()
+	installUpdateNew(options.AppName)
 
 	releaseJson, err := json.Marshal(release)
 	if err != nil {
@@ -78,13 +78,15 @@ func (options Options) ApplyUpdate(release Release) {
 	fmt.Println(string(releaseJson))
 }
 
-func installUpdateNew() {
-	newBinary := ".tmp/selfupdate-test"
-	oldBinary, err := os.Executable()
+func installUpdateNew(appName string) {
+	var err error
+	newBinary := ".tmp/"+appName
+	oldBinary := "./"+appName
+	/*oldBinary, err := os.Executable()
 	if err != nil {
 		fmt.Println("Already app location cannot get:", err)
 		return
-	}
+	}*/
 
 	// Yeni binary'ye çalıştırma izni ver
 	err = os.Chmod(newBinary, 0755)

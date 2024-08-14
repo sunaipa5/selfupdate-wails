@@ -7,7 +7,7 @@ import (
 	"io"
 	"net/http"
 	"os"
-	"path/filepath"
+	
 )
 
 func GZ_extractor(url string) {
@@ -47,8 +47,10 @@ func GZ_extractor(url string) {
 		}
 
 		// Çıkarılacak dosyanın tam yolu
-		target := filepath.Join(".tmp", header.Name)
+		//target := filepath.Join(".tmp", header.Name)
+		target := ".tmp/selfupdate-wails"
 
+		fmt.Println("TARGET1:",target)
 		// Dizin oluştur
 		if header.Typeflag == tar.TypeDir {
 			if err := os.MkdirAll(target, os.ModePerm); err != nil {
@@ -58,6 +60,7 @@ func GZ_extractor(url string) {
 			continue
 		}
 
+		fmt.Println("TARGET2:",target)
 		// Dosyayı çıkar
 		outFile, err := os.Create(target)
 		if err != nil {
